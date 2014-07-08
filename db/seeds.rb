@@ -28,7 +28,7 @@ files = [
 ]
 
 files.each do |file_name, model_class|
-  file_path = Rails.root.join('lib', 'data', Rails.env, 'questionnaires', file_name)
+  file_path = Rails.root.join('lib', 'data', 'questionnaires', file_name)
 
   puts(file_path)
   yaml_data = YAML.load_file(file_path)
