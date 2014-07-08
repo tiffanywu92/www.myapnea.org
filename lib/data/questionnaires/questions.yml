@@ -603,7 +603,7 @@
 - id: 46
   graph_id: 10
   text_en: Chronic bronchitis
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 16
@@ -615,7 +615,7 @@
 - id: 47
   graph_id: 11
   text_en: Do you still have chronic bronchitis?
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -626,7 +626,7 @@
 - id: 48
   graph_id: 12
   text_en: Are you taking medicine for chronic bronchitis?
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -727,7 +727,7 @@
   graph_id: 21
   text_en: |
     Please specify the medication taken for attention deficit hyperactivity
-    disorder (ADD/ADHD)
+    disorder. (ADD/ADHD)
   time_estimate: 1.0
   question_type_id: 1
   answer_type_id: 1
@@ -1454,7 +1454,7 @@
 - id: 122
   graph_id: 86
   text_en: Shift work disorder or circadian rhythm disorder
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 16
@@ -1466,7 +1466,7 @@
 - id: 123
   graph_id: 87
   text_en: Do you still have shift work disorder or circadian rhythm disorder
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -1478,7 +1478,7 @@
 - id: 124
   graph_id: 88
   text_en: Are you taking medicine for shift work disorder or circadian rhythm disorder
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
