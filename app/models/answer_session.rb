@@ -10,60 +10,31 @@ class AnswerSession < ActiveRecord::Base
     answer_sessions.empty? ? nil : answer_sessions.first
   end
 
+  def calculate_status_stats
+    completed = completed_path
+    remaining = remaining_path
 
-  def completed_time
-    completed_answers.map(&:question).map(&:time_estimate).reduce(:+) || 0
-  end
-
-  def remaining_time
-    # if last_answer.blank?
-    #   s = question_flow.first_question
-    # else
-    #   s = last_answer.question
-    # end
-    # # So, we have a last answer, which has a last question. Using that question as a starting point,
-
-    # get distance of all edges
-
-  end
-  #
-  # def wfs
-  #   if last_answer.blank?
-  #     s = question_flow.first_question
-  #   else
-  #     s = last_answer.question
-  #   end
-  #
-  #   edges = QuestionEdge.where(question_flow_id: question_flow.id)
-  #
-  #
-  #
-  #   edges.select
-  #
-  # end
-  #
-  # def top_sort
-  #
-  #   qs = []
-  #
-  #
-  #
-  #   visited = []
-  #
-  #
-  #
-  # end
-  #
-  # def top_sort_u()
-  #
-  # end
-
-  def completed_percentage
-    (self.completed_time / question_flow.total_time) * 100
+    {
+        percent_completed: (completed[:time] / (completed[:time] + remaining[:time])) * 100,
+        completed_questions: completed[:distance],
+        remaining_questions: remaining[:distance],
+        total_questions: completed[:distance] + remaining[:distance],
+        completed_time: completed[:time],
+        remaining_time: remaining[:time],
+        total_time: completed[:time] + remaining[:time]
+    }
   end
 
   def completed_answers
-    Answer.where(answer_session_id: self.id)
+    if first_answer
+      Answer.joins(:in_edge).where(answer_session_id: self.id).select{|a| a.in_edge.present? }.append(first_answer)
+    else
+      []
+    end
+  end
+
+  def completed?
+    remaining_path[:distance] == 0
   end
 
   def process_answer(question, params)
@@ -74,38 +45,77 @@ class AnswerSession < ActiveRecord::Base
 
     #answer_values =
     answer = Answer.where(question_id: question.id, answer_session_id: self.id).first || Answer.new(question_id: question.id, answer_session_id: self.id)
-    answer.value = params[question.id.to_s]
-    answer.save
 
 
-    if self.first_answer_id.blank? or self.last_answer_id.blank?
-      self.first_answer_id = answer.id
+    if answer.new_record? or answer.string_value != params[question.id.to_s] or answer.in_edge.blank?
+      answer.value = params[question.id.to_s]
+      answer.save
+
+
+      if self.first_answer_id.blank?
+        self.first_answer_id = answer.id
+      else
+        if answer.in_edge.blank? and answer != first_answer
+          answer_edges.create(parent_answer_id: last_answer.id, child_answer_id: answer.id)
+        else
+          # Only destroy downstream if answer can change flow
+          answer.destroy_descendant_edges if answer.multiple_options?
+        end
+      end
+
       self.last_answer_id = answer.id
-    else
-      answer_edges.create(parent_answer_id: last_answer.id, child_answer_id: answer.id)
-      self.last_answer_id = answer.id
+      self.save
     end
 
-    self.save
-    #raise StandardError
     answer
   end
 
-  def update_answer
-    # WARNING: UPDATING TO A NEW PATH MIGHT REQUIRE RE-ORGANIZATION OF ANSWER FLOW
-    # Links between answers might need to be updated. Answers might get orphaned
-  end
-
-
   def all_answers
-    current_answer = first_answer
-    answers = []
-
-    begin
-      answers << current_answer
-      current_answer = current_answer.next_answer
-    end while current_answer.present?
-
-    answers
+    [first_answer] + first_answer.descendants
   end
+
+  def started?
+    last_answer.present?
+  end
+
+  def reset_answers
+    if first_answer.present?
+      connected_answers = all_answers
+      first_answer.destroy_descendant_edges
+      self.first_answer = nil
+      self.last_answer = nil
+      save
+      connected_answers.each(&:destroy)
+    end
+  end
+
+  private
+
+  def completed_path
+    time = completed_answers.map(&:question).map(&:time_estimate).reduce(:+) || 0.0
+    distance = completed_answers.length
+
+    {time: time, distance: distance}
+  end
+
+  def remaining_path
+
+    if last_answer.blank?
+      {time: question_flow.total_time, distance: question_flow.total_questions}
+    else
+      s = last_answer.next_question
+
+      if s
+        l = question_flow.leaf
+
+        result = question_flow.find_longest_path(s,l)
+        corrections = {time: 0.0, distance: 0}
+
+        {time: result[:time] - corrections[:time], distance: result[:distance] - corrections[:distance]}
+      else
+        {time: 0.0, distance: 0}
+      end
+    end
+  end
+
 end

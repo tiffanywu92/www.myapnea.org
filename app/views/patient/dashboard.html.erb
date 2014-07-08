@@ -1,33 +1,38 @@
 <div class="page-header">
-  <h1><%= current_user.full_name %>'s Dashboard</h1>
+  <h1><%= current_user.first_name %>'s Dashboard</h1>
 </div>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <h2>Questionnaires</h2>
     <div id="questionnaires" class="list-group">
-      <% QuestionFlow.where(status: "show").each do |qf| %>
-        <% if AnswerSession.most_recent(qf.id, current_user.id) and AnswerSession.most_recent(qf.id, current_user.id).completed_answers.length == qf.all_questions.length %>
-          <a href="<%= finished_answer_session_path(answer_session_id: AnswerSession.most_recent(qf.id, current_user.id).id) %>" class="list-group-item">
+      <% QuestionFlow.where(status: "show").order('id').each do |qf| %>
+        <% as = AnswerSession.most_recent(qf.id, current_user.id) %>
+        <% if as and as.completed? %>
+          <div class="list-group-item">
             <h3><%= qf.name %></h3>
             <p><strong>Questionnaire finished!</strong></p>
-          </a>
+            <div>
+              <%= link_to 'Review Answers', finished_answer_session_path(answer_session_id: as.id), class: 'btn btn-default btn-sm' %>
+              <%= link_to 'Retake Questionnaire', start_answer_session_path(question_flow_id: qf.id), class: 'btn btn-default btn-sm', data: {confirm: "Are you sure you want to retake the questionnaire?", description: "All your progress will be lost, and you'll have complete the questionnaire again."} %>
+            </div>
+          </div>
         <% else %>
-          <a href="<%= start_answer_session_path(question_flow_id: qf.id) %>" class="list-group-item">
+          <%= link_to start_or_resume(qf, as), class: 'list-group-item' do %>
             <h3><%= qf.name %></h3>
-            <% if AnswerSession.most_recent(qf.id, current_user.id) %>
-              <%= render partial: 'answer_sessions/session_progress', locals: {answer_session: AnswerSession.most_recent(qf.id, current_user.id)} %>
+            <% if as.present? and as.started? %>
+              <%=  render partial: 'answer_sessions/session_progress', locals: {stats: as.calculate_status_stats} %>
             <% else %>
               <p>Questionnaire not yet started.</p>
               <p><strong>Estimated time commitment:</strong> <%= qf.total_time.ceil %> minutes for <%= qf.all_questions.length %> questions.</p>
             <% end %>
-          </a>
+          <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="hidden">
     <h2>My Profile</h2>
     <div class="btn-group-vertical">
       <%= link_to "Change Email", "", class: 'btn btn-link' %>

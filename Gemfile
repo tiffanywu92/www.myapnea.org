@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '=4.1.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -44,7 +44,7 @@ gem 'spring',        group: :development
 # Static pages
 # gem 'high_voltage', '~> 2.1.0'
 
-# Less support
+# Less sup
 gem 'less-rails'
 
 # Scaffold Generation
@@ -52,6 +52,13 @@ gem 'bootstrap-generators', '~> 3.1.1.3'
 
 # Markdown Support
 gem 'redcarpet'
+
+# Directed Acyclic Graph
+gem 'acts-as-dag'
+
+# Geocoding
+gem 'geocoder'
+
 
 # Development
 group :development do
@@ -68,6 +75,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'rails-erd'
 end
 
 gem 'simplecov', :require => false, :group => :test

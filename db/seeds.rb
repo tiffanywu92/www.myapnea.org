@@ -6,6 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+to_keep = [ "users", "schema_migrations"]
+tables = ["answer_types",
+          "question_answer_options",
+          "answer_sessions",
+          "answers",
+          "answer_values", "questions", "answer_edges", "units", "question_help_messages", "answer_options", "question_types", "question_edges", "question_flows"]
+
+tables.each do |table|
+  ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
+end
 
 files = [
     ["units.yml", Unit],
@@ -15,12 +25,10 @@ files = [
     ["question_help_messages.yml", QuestionHelpMessage],
     ["questions.yml", Question],
     ["question_flows.yml", QuestionFlow],
-    ["question_edges.yml", QuestionEdge]
 ]
 
-
 files.each do |file_name, model_class|
-  file_path = Rails.root.join('lib', 'data', 'questionnaires', file_name)
+  file_path = Rails.root.join('lib', 'data', Rails.env, 'questionnaires', file_name)
 
   puts(file_path)
   yaml_data = YAML.load_file(file_path)
@@ -30,6 +38,24 @@ files.each do |file_name, model_class|
     model_class.create(object_attrs)
   end
 end
+
+qe_path = Rails.root.join('lib', 'data', Rails.env, 'questionnaires', 'question_edges.yml')
+puts(qe_path)
+
+yaml_data = YAML.load_file(qe_path)
+
+yaml_data.each_with_index do |attrs, i|
+
+  q1 = Question.find(attrs['parent_question_id'])
+  q2 = Question.find(attrs['child_question_id'])
+
+  qe = QuestionEdge.build_edge(q1, q2, attrs['condition'], attrs['question_flow_id'])
+
+  puts("Creating edge #{i} of #{yaml_data.length} between #{q1.id} and #{q2.id}")
+  raise StandardError, qe.errors.full_messages unless qe.save
+end
+
+QuestionFlow.all.each {|qf| qf.reset_paths }
 
 # File.open('/home/pwm4/Desktop/qs.yml', 'w') {|f| f.write Question.all.map{|q| {
 #     'id' => q.id,
@@ -51,7 +77,7 @@ end
 #   p = s[i]
 #   c = p + 1
 #
-#   while c <= e[i] do
+#   while c < e[i] do
 #     m << {
 #       'question_flow_id' => qf.id,
 #       'parent_question_id' => p,
@@ -62,7 +88,8 @@ end
 #     c += 1
 #   end
 # end
-
+#
+#
 # File.open('/home/pwm4/Desktop/qf.yml', 'w') {|f| f.write m.to_yaml }
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612201041) do
+ActiveRecord::Schema.define(version: 20140624135726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140612201041) do
     t.integer  "answer_session_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "direct"
+    t.integer  "count"
   end
 
   create_table "answer_options", force: true do |t|
@@ -66,6 +68,16 @@ ActiveRecord::Schema.define(version: 20140612201041) do
     t.datetime "updated_at"
   end
 
+  create_table "mailing_lists", force: true do |t|
+    t.string   "email",      default: "", null: false
+    t.string   "country"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "question_answer_options", force: true do |t|
     t.integer  "question_id"
     t.integer  "answer_option_id"
@@ -80,6 +92,8 @@ ActiveRecord::Schema.define(version: 20140612201041) do
     t.string   "condition"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "direct"
+    t.integer  "count"
   end
 
   create_table "question_flows", force: true do |t|
@@ -91,6 +105,9 @@ ActiveRecord::Schema.define(version: 20140612201041) do
     t.datetime "updated_at"
     t.string   "name_es"
     t.text     "description_es"
+    t.text     "tsorted_edges"
+    t.decimal  "longest_time"
+    t.integer  "longest_path"
   end
 
   create_table "question_help_messages", force: true do |t|
