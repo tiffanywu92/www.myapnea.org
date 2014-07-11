@@ -352,7 +352,9 @@
   time_estimate: 1.0
   question_type_id: 1
   answer_type_id: 1
-  
+  question_help_message_id:
+  unit_id:
+  answer_option_ids: []
 - id: 26
   graph_id: 26
   text_en: How many people, other than you, live in your household?
@@ -364,7 +366,7 @@
   answer_option_ids: []
 - id: 27
   graph_id: 27
-  text_en: What is the age of the person that lives in your household?
+  text_en: What is the age(round to nearest year) of the person that lives in your household?
   time_estimate: 0.5
   question_type_id: 6
   answer_type_id: 2
@@ -373,7 +375,7 @@
   answer_option_ids: []
 - id: 28
   graph_id: 28
-  text_en: What is relationship between you and the person that lives in your household?
+  text_en: What is the relationship between you and the person that lives in your household?
   time_estimate: 0.3
   question_type_id: 3
   answer_type_id: 1
@@ -391,10 +393,15 @@
   graph_id: 29
   text_en: How many parents or guardians did you have?
   time_estimate: 0.1
-  question_type_id: 6
+  question_type_id: 3
   answer_type_id: 2
   question_help_message_id: 3
-  unit_id: 
+  unit_id:
+  answer_options_ids:
+  - 74
+  - 75
+  - 76
+  - 77
 - id: 30
   graph_id: 30
   text_en: |
@@ -424,7 +431,7 @@
 - id: 31
   graph_id: 31
   text_en: |
-    Please specify how heard about the Sleep Apnea Patient-Centered
+    Please specify how you heard about the Sleep Apnea Patient-Centered
     Outcomes Research.
   time_estimate: 1.0
   question_type_id: 1
@@ -446,7 +453,7 @@
   - 36
 - id: 33
   graph_id: 33
-  text_en: Which of these healthcare systems do you recieve most of your primary care at?
+  text_en: Which of these healthcare systems do you receive most of your primary care at?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -600,7 +607,7 @@
 - id: 46
   graph_id: 10
   text_en: Chronic bronchitis
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 16
@@ -612,7 +619,7 @@
 - id: 47
   graph_id: 11
   text_en: Do you still have chronic bronchitis?
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -623,7 +630,7 @@
 - id: 48
   graph_id: 12
   text_en: Are you taking medicine for chronic bronchitis?
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -724,7 +731,7 @@
   graph_id: 21
   text_en: |
     Please specify the medication taken for attention deficit hyperactivity
-    disorder (ADD/ADHD)
+    disorder (ADD/ADHD).
   time_estimate: 1.0
   question_type_id: 1
   answer_type_id: 1
@@ -1296,7 +1303,7 @@
   - 19
 - id: 108
   graph_id: 72
-  text_en: Are taking medicine for narcolepsy?
+  text_en: Are you taking medicine for narcolepsy?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -1451,7 +1458,7 @@
 - id: 122
   graph_id: 86
   text_en: Shift work disorder or circadian rhythm disorder
-  time_estimate: 0.0
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 16
@@ -1462,8 +1469,8 @@
   - 19
 - id: 123
   graph_id: 87
-  text_en: Do you still have shift work disorder or circadian rhythm disorder
-  time_estimate: 0.0
+  text_en: Do you still have shift work disorder or circadian rhythm disorder?
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -1474,8 +1481,8 @@
   - 19
 - id: 124
   graph_id: 88
-  text_en: Are you taking medicine for shift work disorder or circadian rhythm disorder
-  time_estimate: 0.0
+  text_en: Are you taking medicine for shift work disorder or circadian rhythm disorder?
+  time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 
@@ -1825,7 +1832,7 @@
   - 20
 - id: 156
   graph_id: 120
-  text_en: Please specify other cancer
+  text_en: Please specify other cancer.
   time_estimate: 1.0
   question_type_id: 1
   answer_type_id: 1
@@ -1909,7 +1916,7 @@
   - 20
 - id: 164
   graph_id: 128
-  text_en: Please specify medication taken for this?
+  text_en: Please specify medication taken for this.
   time_estimate: 1.0
   question_type_id: 1
   answer_type_id: 1
@@ -2181,7 +2188,7 @@
   - 112
 - id: 188
   graph_id: 10
-  text_en: Walking several blocks
+  text_en: Walking several hundred yards
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -2193,7 +2200,7 @@
   - 112
 - id: 189
   graph_id: 11
-  text_en: Walking one block
+  text_en: Walking one hundred yards
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -2239,7 +2246,7 @@
   - 20
 - id: 193
   graph_id: 15
-  text_en: Were limited in the kind of work or other activities
+  text_en: Were limited in the kind of work or other activities (e.g., it took extra effort)
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -2313,7 +2320,7 @@
   - 117
 - id: 199
   graph_id: 21
-  text_en: How much bodily pain have you had during the **past 4 weeks**
+  text_en: How much bodily pain have you had during the **past 4 weeks**?
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -2344,7 +2351,7 @@
   - 117
 - id: 201
   graph_id: 23
-  text_en: Did you feel full of pep?
+  text_en: Did you feel full of life?
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -2359,7 +2366,7 @@
   - 129
 - id: 202
   graph_id: 24
-  text_en: Have you been a very nervous person?
+  text_en: Have you been very nervous?
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -2419,7 +2426,7 @@
   - 129
 - id: 206
   graph_id: 28
-  text_en: Have you felt downhearted and blue?
+  text_en: Have you felt downhearted and depressed?
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -2449,7 +2456,7 @@
   - 129
 - id: 208
   graph_id: 30
-  text_en: Have you been a happy person?
+  text_en: Have you been happy?
   time_estimate: 0.15
   question_type_id: 3
   answer_type_id: 1
@@ -3222,7 +3229,7 @@
   graph_id: 10
   text_en: |
     In a typical month during the past year, what was the largest number of
-    drink of beer, wine and/or liquor you may have had in one day
+    drink of beer, wine and/or liquor you may have had in one day?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -3470,7 +3477,7 @@
   - 172
 - id: 288
   graph_id: 16
-  text_en: How often did you and you PCP **agree** about your card needs?
+  text_en: How often did you and your PCP **agree** about your care needs?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -3642,7 +3649,7 @@
   - 51
 - id: 301
   graph_id: 29
-  text_en: How often does that healthcare provider talk with you abour future care?
+  text_en: How often does that healthcare provider talk with you about your future care?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -3715,7 +3722,7 @@
   graph_id: 34
   text_en: |
     In the past 3 months, how often do you think your **main caregiver** was
-    satisfied with the care your received?
+    satisfied with the care you received?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -3800,7 +3807,7 @@
   - 129
 - id: 312
   graph_id: 40
-  text_en: Shown how what I did to take care of myself infleunced my conditions
+  text_en: Shown how what I did to take care of myself influenced my condition
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -3944,7 +3951,7 @@
   - 129
 - id: 322
   graph_id: 50
-  text_en: Contacted after a visit to see how things were going
+  text_en: Contacted me after a visit to see how things were going
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4017,7 +4024,7 @@
 # My Physical Activity
 - id: 327
   graph_id: 1
-  text_en: Can you take of yourself (eating, dressing, bathing, or using the toilet)?
+  text_en: Can you take care of yourself (eating, dressing, bathing, or using the toilet)?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4028,7 +4035,7 @@
   - 20
 - id: 328
   graph_id: 2
-  text_en: Can you walk indoor, such as around the house?
+  text_en: Can you walk indoors, such as around the house?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4438,8 +4445,7 @@
 - id: 359
   graph_id: 8
   text_en: |
-    How satisfied were you with the care you received from your physician or
-    healthcare provider for your Sleep Apnea?
+    How satisfied were you with the care you received from your physician for your Sleep Apnea?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4480,7 +4486,7 @@
   - 203
 - id: 362
   graph_id: 11
-  text_en: How satisfied have you been with the care you received from a sleep specialist?
+  text_en: How satisfied were you with the care you received from a sleep specialist?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4495,7 +4501,7 @@
   - 196
 - id: 363
   graph_id: 12
-  text_en: Did you've had sleep apnea treatment?
+  text_en: Did you've had Sleep Apnea treatment?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4537,7 +4543,7 @@
   answer_option_ids: []
 - id: 367
   graph_id: 16
-  text_en: What kind of insurance did you have at the time your sleep apnea was diagnosed
+  text_en: What kind of insurance did you have at the time your sleep apnea was diagnosed and
     treated?
   time_estimate: 0.2
   question_type_id: 3
@@ -4710,7 +4716,7 @@
   answer_option_ids: []
 - id: 383
   graph_id: 32
-  text_en: Behavioral theraepy
+  text_en: Behavioral therapy
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -4763,7 +4769,7 @@
   - 20
 - id: 388
   graph_id: 37
-  text_en: UPPP (removal of palate and other tissue from the mouth)
+  text_en: Uvulopalatopharyngoplasty (UPPP-removal of palate and other tissue from the mouth)
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -5069,7 +5075,7 @@
   - 36
   - 20
 - id: 10411
-  graph_id: 5
+  graph_id: 7
   text_en: How long did you experience **sleepiness** for before you were diagnosed with sleep
     apnea?
   time_estimate: 0.5
@@ -5079,7 +5085,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 412
-  graph_id: 7
+  graph_id: 8
   text_en: Driving or work accident
   time_estimate: 0.1
   question_type_id: 3
@@ -5090,7 +5096,7 @@
   - 36
   - 20
 - id: 10412
-  graph_id: 5
+  graph_id: 9
   text_en: |
     How long after this **driving or work accident** were diagnosed with sleep
     apnea?
@@ -5101,7 +5107,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 413
-  graph_id: 8
+  graph_id: 10
   text_en: Snorting/gasping during sleep
   time_estimate: 0.1
   question_type_id: 3
@@ -5112,7 +5118,7 @@
   - 36
   - 20
 - id: 10413
-  graph_id: 5
+  graph_id: 11
   text_en: |
     How long did you **snort or gasp during sleep** before you were diagnosed with sleep
     apnea?
@@ -5123,7 +5129,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 414
-  graph_id: 9
+  graph_id: 12
   text_en: Shortness of breath during sleep
   time_estimate: 0.1
   question_type_id: 3
@@ -5134,7 +5140,7 @@
   - 36
   - 20
 - id: 10414
-  graph_id: 5
+  graph_id: 13
   text_en: |
     How long did you have **shortness of breath during sleep** before you were diagnosed with sleep
     apnea?
@@ -5145,7 +5151,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 415
-  graph_id: 10
+  graph_id: 14
   text_en: Stopped breathing during sleep
   time_estimate: 0.1
   question_type_id: 3
@@ -5156,7 +5162,7 @@
   - 36
   - 20
 - id: 10415
-  graph_id: 5
+  graph_id: 15
   text_en: |
     How long did you know that you **stopped breathing during sleep** before you were diagnosed with sleep
     apnea?
@@ -5167,7 +5173,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 416
-  graph_id: 11
+  graph_id: 16
   text_en: Heart disease
   time_estimate: 0.1
   question_type_id: 3
@@ -5178,7 +5184,7 @@
   - 36
   - 20
 - id: 10416
-  graph_id: 5
+  graph_id: 17
   text_en: |
     How long did you have **heart disease** before you were diagnosed with sleep
     apnea?
@@ -5189,7 +5195,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 417
-  graph_id: 12
+  graph_id: 18
   text_en: High Blood pressure
   time_estimate: 0.1
   question_type_id: 3
@@ -5200,7 +5206,7 @@
   - 36
   - 20
 - id: 10417
-  graph_id: 5
+  graph_id: 19
   text_en: |
     How long did you have **high blood pressure** before you were diagnosed with sleep
     apnea?
@@ -5211,7 +5217,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 418
-  graph_id: 13
+  graph_id: 20
   text_en: Concerned friend or spouse
   time_estimate: 0.1
   question_type_id: 3
@@ -5222,7 +5228,7 @@
   - 36
   - 20
 - id: 10418
-  graph_id: 5
+  graph_id: 21
   text_en: |
     How long after your **friend or spouse** shared their concern were you diagnosed with sleep
     apnea?
@@ -5233,7 +5239,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 419
-  graph_id: 14
+  graph_id: 22
   text_en: Healthcare provider suggestion
   time_estimate: 0.1
   question_type_id: 3
@@ -5244,7 +5250,7 @@
   - 36
   - 20
 - id: 10419
-  graph_id: 5
+  graph_id: 23
   text_en: |
     How long after your **healthcare provider** suggested an evaluation were you diagnosed with Sleep
     Apnea?
@@ -5255,7 +5261,7 @@
   unit_id: 11
   answer_option_ids: []
 - id: 420
-  graph_id: 15
+  graph_id: 24
   text_en: Did any other symptoms trigger you to be evaluated for Sleep Apnea?
   time_estimate: 0.1
   question_type_id: 3
@@ -5266,7 +5272,7 @@
   - 36
   - 20
 - id: 421
-  graph_id: 16
+  graph_id: 25
   text_en: Please specify which other symptom or symptoms triggered you to be evaluated for Sleep Apnea.
   time_estimate: 1.0
   question_type_id: 1
@@ -5275,7 +5281,7 @@
   unit_id: 
   answer_option_ids: []
 - id: 422
-  graph_id: 17
+  graph_id: 26
   text_en: What doctor first talked to you about Sleep Apnea?
   time_estimate: 0.2
   question_type_id: 3
@@ -5288,8 +5294,17 @@
   - 193
   - 194
   - 34
+- id: 10422
+  graph_id: 27
+  text_en: Please specify other type of doctor first talked to you about Sleep Apnea.
+  time_estimate: 1.0
+  question_type_id: 1
+  answer_type_id: 1
+  question_help_message_id:
+  unit_id:
+  answer_option_ids: []
 - id: 423
-  graph_id: 18
+  graph_id: 28
   text_en: What type of sleep study did you have?
   time_estimate: 0.1
   question_type_id: 3
@@ -5300,7 +5315,7 @@
   - 220
   - 221
 - id: 424
-  graph_id: 19
+  graph_id: 29
   text_en: What was the name of the clinic or sleep lab where you received your sleep
     study?
   time_estimate: 1.0
@@ -5310,7 +5325,7 @@
   unit_id: 
   answer_option_ids: []
 - id: 425
-  graph_id: 20
+  graph_id: 30
   text_en: How satisified were you with the experience of getting a sleep study?
   time_estimate: 0.2
   question_type_id: 3
@@ -5366,7 +5381,7 @@
   answer_option_ids: []
 - id: 430
   graph_id: 5
-  text_en: AM or PM? (between noon and midnight are PM, midnight is AM, noon is PM)
+  text_en: AM or PM? (Times between noon and midnight are PM, midnight is AM, noon is PM)
   question_type_id: 3
   time_estimate: 0.1
   question_help_message_id: 
@@ -5377,7 +5392,7 @@
   - 225
 - id: 431
   graph_id: 6
-  text_en: Not including naps, at what time do you usally go to bed on weekends or days off? 
+  text_en: Not including naps, what time do you usually go to bed on weekends or days off?
   time_estimate: 0.3
   question_type_id: 7
   answer_type_id: 2
@@ -5386,7 +5401,7 @@
   answer_option_ids: []
 - id: 432
   graph_id: 7
-  text_en: Not including naps, at what time do you usually wake up on weekdays or workdays? 
+  text_en: Not including naps, what time do you usually wake up on weekdays or workdays?
   time_estimate: 0.3
   question_type_id: 7
   answer_type_id: 2
@@ -5395,7 +5410,7 @@
   answer_option_ids: []
 - id: 433 
   graph_id: 8
-  text_en: Not including naps, at what time do you usually wake up on weekends or days off?
+  text_en: Not including naps, what time do you usually wake up on weekends or days off?
   time_estimate: 0.3
   question_type_id: 7
   answer_type_id: 2
@@ -5413,7 +5428,7 @@
   answer_option_ids: []  
 - id: 435 
   graph_id: 10
-  text_en: Considering only your own **"feeling best"** rhythm, at what time would you get up if you were entirely free to plan your day. 
+  text_en: Considering only your own **"feeling best"** rhythm, at what time would you get up if you were entirely free to plan your day?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
@@ -5453,7 +5468,7 @@
   - 234
 - id: 438
   graph_id: 13
-  text_en: At what time of the day do you think that you reach you **"feeling best"** peak? 
+  text_en: At what time of the day do you think that you reach your **"feeling best"** peak?
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id: 30
@@ -5778,7 +5793,7 @@
   - 19 
 - id: 462
   graph_id: 22
-  text_en: Are the symptoms worse when you are at rest, but are at least temporarily relieved by activity?
+  text_en: Are these symptoms worse when you are at rest, but are at least temporarily relieved by activity?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
