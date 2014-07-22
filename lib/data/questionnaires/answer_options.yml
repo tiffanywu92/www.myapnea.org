@@ -73,7 +73,7 @@
   text_value_en: |
     Yes
 - id: 37
-  text_value_en: Working full times
+  text_value_en: Working full time
 - id: 38
   text_value_en: Working part time
 - id: 39
@@ -544,3 +544,53 @@
   text_value_en: Often
 - id: 270
   text_value_en: Very poor
+- id: 271
+  text_value_en: Snoring
+- id: 272
+  text_value_en: Sleepiness
+- id: 273
+  text_value_en: Driving or work accident
+- id: 274
+  text_value_en: Shortness of breath during sleep
+- id: 275
+  text_value_en: Stopped breathing during sleep
+- id: 276
+  text_value_en: Heart disease
+- id: 277
+  text_value_en: High blood pressure
+- id: 278
+  text_value_en: Concerned friend or spouse
+- id: 279
+  text_value_en: Healthcare provider suggestion
+- id: 280
+  text_value_en: Never been treated
+- id: 281
+  text_value_en: CPAP (Continuous Positive Airway Pressure Machine)
+- id: 282
+  text_value_en: APAP (Auto Positive Airway Pressure Machine)
+- id: 283
+  text_value_en: BiPAP (Bi-level Airway Pressure Machine)
+- id: 284
+  text_value_en: Adaptive servo-ventilation (ASV)
+- id: 285
+  text_value_en: Oral appliance
+- id: 286
+  text_value_en: Tongue Stimulation
+- id: 287
+  text_value_en: Tonsillectomy (removal of tonsils)
+- id: 288
+  text_value_en: UPPP (removal of palate and other tissue from the mouth)
+- id: 289
+  text_value_en: Nasal deviation surgery
+- id: 290
+  text_value_en: Tongue Surgery
+- id: 291
+  text_value_en: Jaw surgery
+- id: 292
+  text_value_en: Bariatric surgery
+- id: 293
+  text_value_en: Graduate School
+- id: 294
+  text_value_en: Prefer not to answer
+- id: 295
+  text_value_en: High school diploma
