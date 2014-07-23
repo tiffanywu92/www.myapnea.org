@@ -6345,7 +6345,6 @@
   answer_option_ids:
   - 36
   - 20
-# for each treatment checked, use above
 - id: 503
   graph_id: 15
   text_en: How satisfied were you with this treatment?
@@ -6360,6 +6359,7 @@
   - 76
   - 77
   - 196
+# for each treatment checked, use both id: 502 and 503
 - id: 504
   graph_id: 16
   text_en: Sleepiness
@@ -6851,7 +6851,7 @@
   answer_option_ids:
   - 36
   - 20
-  -19
+  - 19
 - id: 542
   graph_id: 54
   text_en: Restless leg syndrome
@@ -6879,16 +6879,16 @@
 - id: 544
   graph_id: 56
   text_en: |
-  Do you have any kind of health care coverage, including health insurance,
-  prepaid plans such as HMOs, or government plans such as Medicare?
+    Do you have any kind of health care coverage, including health insurance,
+    prepaid plans such as HMOs, or government plans such as Medicare?
   time_estimate: 0.1
   question_type_id: 3
   answer_type_id: 1
   question_help_message_id:
   unit_id:
   answer_option_ids:
-  -36
-  -20
+  - 36
+  - 20
 - id: 545
   graph_id: 57
   text_en: How old are you?
