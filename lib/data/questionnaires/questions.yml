@@ -6241,6 +6241,7 @@
   - 277
   - 278
   - 279
+# for each symptom checked use both id: 495 and 496
 - id: 495
   graph_id: 7
   text_en: How long had this symptom been present before you were diagnosed with sleep apnea?
@@ -6259,7 +6260,6 @@
   question_help_message_id:
   unit_id: 11
   answer_option_ids: []
-# for each symptom checked use both id: 495 and 496
 - id: 497
   graph_id: 9
   text_en: What doctor first talked to you about Sleep Apnea?
